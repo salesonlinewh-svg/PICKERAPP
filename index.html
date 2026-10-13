@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f2a5c">
+<title>نصب whalePick</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--ink:#14181d;--mut:#5b6672;--ln:#d6dce5;--pri:#0f2a5c;--ok:#16a34a;--warn:#b45309;--r:14px;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#171c24;--ink:#eef1f6;--mut:#9aa6b2;--ln:#2a313c;--pri:#4f7fe0}}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--ink);font:16px/1.9 Vazirmatn,Tahoma,system-ui,sans-serif;padding:16px;padding-bottom:40px}
+main{max-width:560px;margin:auto}
+h1{font-size:22px;margin:8px 0 4px}
+.sub{color:var(--mut);margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:16px;margin-bottom:14px}
+.card.hl{border:2px solid var(--pri)}
+h2{font-size:17px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+h2 i{font-style:normal;background:var(--pri);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:14px;flex:none}
+ol,ul{padding-inline-start:22px}li{margin:4px 0}
+a.btn,button.btn{display:block;width:100%;text-align:center;text-decoration:none;font:inherit;font-weight:700;background:var(--pri);color:#fff;border:0;border-radius:12px;padding:14px;margin:10px 0 4px;cursor:pointer}
+a.btn.sec,button.btn.sec{background:transparent;color:var(--pri);border:2px solid var(--pri)}
+small,.mut{color:var(--mut)}
+.note{background:rgba(180,83,9,.12);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:15px}
+code{direction:ltr;unicode-bidi:embed;background:rgba(127,127,127,.15);padding:1px 6px;border-radius:6px;font-size:14px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button{flex:1;font:inherit;font-weight:700;padding:12px;border-radius:12px;border:2px solid var(--ln);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button.on{border-color:var(--pri);background:var(--pri);color:#fff}
+.os{display:none}.os.on{display:block}
+#msg{color:var(--ok);min-height:1.5em;font-size:15px}
+</style>
+</head>
+<body>
+<main>
+<h1>نصب whalePick</h1>
+<p class="sub">یک بار نصب کنید؛ بعد از آن عکس‌ها و دسته‌بندی کالاها هم خودکار روی گوشی ذخیره می‌شود.</p>
+
+<div class="tabs">
+ <button id="tA" data-os="A">اندروید</button>
+ <button id="tI" data-os="I">آیفون</button>
+</div>
+
+<!-- اندروید -->
+<section class="os" id="osA">
+ <div class="card">
+  <h2><i>۱</i> برنامه‌ی Tampermonkey</h2>
+  <p>مرورگر Firefox را باز کنید و افزونه‌ی Tampermonkey را اضافه کنید.</p>
+  <a class="btn sec" href="https://addons.mozilla.org/firefox/addon/tampermonkey/" target="_blank" rel="noopener">باز کردن صفحه‌ی Tampermonkey</a>
+  <p class="mut" style="margin-top:6px">اگر قبلاً نصب است، مرحله‌ی بعد.</p>
+ </div>
+</section>
+
+<!-- آیفون -->
+<section class="os" id="osI">
+ <div class="card">
+  <h2><i>۱</i> برنامه‌ی Stay</h2>
+  <ol>
+   <li>برنامه‌ی Stay را از App Store نصب کنید.</li>
+   <li>در <b>تنظیمات ← Safari ← افزونه‌ها (Extensions)</b>، Stay را روشن کنید و اجازه‌ی دسترسی به همه‌ی سایت‌ها (یا حداقل <code>whstore.alcore.ir</code> و <code>script.google.com</code>) را بدهید.</li>
+  </ol>
+  <a class="btn sec" href="https://apps.apple.com/app/stay-userscript-extension/id1591620171" target="_blank" rel="noopener">باز کردن Stay در App Store</a>
+  <div class="note">این صفحه را حتماً در <b>Safari</b> باز کنید، نه مرورگر دیگر.</div>
+ </div>
+</section>
+
+<div class="card hl">
+ <h2><i>۲</i> نصب whalePick</h2>
+ <a class="btn" href="whalepick.user.js" id="l1">نصب whalePick</a>
+ <button class="btn sec" data-copy="whalepick.user.js">کپی لینک</button>
+</div>
+
+<div class="card hl">
+ <h2><i>۳</i> نصب ابزارها</h2>
+ <p class="mut">غیرفعال‌سازی بارکد، ارسال گزارش و دانلود داده‌ها.</p>
+ <a class="btn" href="whalepick-tools.user.js" id="l2">نصب ابزارها</a>
+ <button class="btn sec" data-copy="whalepick-tools.user.js">کپی لینک</button>
+ <p id="msg"></p>
+ <div class="note" id="iosHelp" style="display:none">اگر روی آیفون پنجره‌ی نصب باز نشد: «کپی لینک» را بزنید، برنامه‌ی Stay را باز کنید و لینک را با گزینه‌ی افزودن از لینک (+) وارد کنید.</div>
+</div>
+
+<div class="card">
+ <h2><i>۴</i> داده‌ها</h2>
+ <ol>
+  <li>گوشی را به <b>دیتای موبایل</b> وصل کنید (حدود ۳۵ مگابایت).</li>
+  <li>پنل <code>whstore.alcore.ir</code> را باز کنید و دکمه‌ی شناور whalePick را بزنید.</li>
+  <li>روی «<b>دانلود یکجا</b>» بزنید و صبر کنید تا «تمام شد ✓» بیاید.</li>
+  <li>از «تنظیمات» آدرس گزارش را یک بار وارد کنید (مدیر می‌دهد).</li>
+ </ol>
+ <p class="mut">بعد از دانلود، whalePick بدون اینترنت هم کار می‌کند. نسخه‌ی جدید داده‌ها بیاید، همان‌جا دکمه‌ی «به‌روزرسانی» می‌بینید.</p>
+</div>
+
+<div class="card">
+ <h2>اگر نسخه‌های قدیمی نصب بود</h2>
+ <p>اسکریپت‌های «پل غیرفعال‌سازی» و «ارسال گزارش به Google Sheet» و نسخه‌های قبلی whalePick را در Tampermonkey یا Stay پاک کنید. این دو اسکریپت جدید جای همه‌ی آن‌ها را می‌گیرند.</p>
+</div>
+</main>
+<script>
+(function(){
+ var ua=navigator.userAgent||'',ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+ function show(o){document.getElementById('osA').classList.toggle('on',o==='A');document.getElementById('osI').classList.toggle('on',o==='I');
+  document.getElementById('tA').classList.toggle('on',o==='A');document.getElementById('tI').classList.toggle('on',o==='I');
+  document.getElementById('iosHelp').style.display=o==='I'?'block':'none'}
+ show(ios?'I':'A');
+ document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){show(b.dataset.os)}});
+ document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var u=new URL(b.dataset.copy,location.href).href,m=document.getElementById('msg');
+  function ok(){m.textContent='لینک کپی شد ✓'}
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(ok,function(){prompt('لینک را کپی کنید',u)});
+  else prompt('لینک را کپی کنید',u)}});
+})();
+</script>
+</body>
+</html>

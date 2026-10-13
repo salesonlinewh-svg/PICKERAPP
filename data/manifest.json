@@ -1,0 +1,33 @@
+{
+ "v": "2026-10-12-1",
+ "files": [
+  {
+   "name": "cats.js",
+   "size": 667417
+  },
+  {
+   "name": "img-001.pack",
+   "size": 2654644
+  },
+  {
+   "name": "img-002.pack",
+   "size": 2653734
+  },
+  {
+   "name": "img-003.pack",
+   "size": 2129255
+  },
+  {
+   "name": "zoom-001.pack",
+   "size": 10234944
+  },
+  {
+   "name": "zoom-002.pack",
+   "size": 10437694
+  },
+  {
+   "name": "zoom-003.pack",
+   "size": 8155536
+  }
+ ]
+}
